@@ -640,6 +640,7 @@ h3 {
 
   .sidebar {
     position: static;
+    order: -1;
   }
 }
 
@@ -775,6 +776,10 @@ h3 {
 
   .side-box {
     padding: 14px;
+  }
+
+  .sidebar .side-box:not(:first-child) {
+    display: none;
   }
 }
 
