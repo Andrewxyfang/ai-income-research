@@ -1,0 +1,12 @@
+# Source files used to generate the public site.
+content/
+markdownTOhtml.py
+README.md
+
+# Old dynamic markdown renderer; reports are published as static HTML.
+report.html
+methodology.html
+
+# Local/editor noise.
+.DS_Store
+Thumbs.db
