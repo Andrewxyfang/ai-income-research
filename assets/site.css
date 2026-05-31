@@ -21,6 +21,7 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -30,6 +31,14 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
   font-size: 16px;
   line-height: 1.65;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  font: inherit;
 }
 
 a {
@@ -123,7 +132,7 @@ p {
 h1 {
   max-width: 780px;
   margin-bottom: 18px;
-  font-size: clamp(38px, 7vw, 72px);
+  font-size: 64px;
   line-height: 1.05;
   letter-spacing: 0;
 }
@@ -238,6 +247,7 @@ h3 {
   background: var(--surface);
   padding: 18px;
   box-shadow: 0 8px 24px rgba(17, 24, 39, 0.04);
+  overflow-wrap: anywhere;
 }
 
 .report-card:hover {
@@ -339,7 +349,7 @@ h3 {
 
 .page-head h1 {
   max-width: 880px;
-  font-size: clamp(34px, 6vw, 58px);
+  font-size: 54px;
 }
 
 .page-head .lead {
@@ -384,11 +394,14 @@ h3 {
   border-radius: var(--radius);
   background: var(--surface);
   padding: 28px;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .article h1 {
   margin-bottom: 12px;
-  font-size: clamp(32px, 5vw, 50px);
+  font-size: 46px;
+  line-height: 1.16;
 }
 
 .meta {
@@ -457,7 +470,9 @@ h3 {
 }
 
 .article pre {
+  max-width: 100%;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   border-radius: var(--radius);
   background: #101828;
   padding: 16px;
@@ -488,7 +503,11 @@ h3 {
 }
 
 .article table {
+  display: block;
   width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   border-collapse: collapse;
   min-width: 520px;
 }
@@ -559,6 +578,7 @@ h3 {
   border-radius: var(--radius);
   background: var(--surface);
   padding: 28px;
+  overflow-wrap: anywhere;
 }
 
 .content-page h2 {
@@ -597,6 +617,18 @@ h3 {
 }
 
 @media (max-width: 920px) {
+  h1 {
+    font-size: 54px;
+  }
+
+  .page-head h1 {
+    font-size: 46px;
+  }
+
+  .article h1 {
+    font-size: 38px;
+  }
+
   .article-layout {
     grid-template-columns: 1fr;
   }
@@ -613,35 +645,63 @@ h3 {
 
 @media (max-width: 640px) {
   .container {
-    width: min(100% - 28px, var(--max));
+    width: min(100% - 32px, var(--max));
   }
 
   .nav {
-    min-height: auto;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 14px 0;
-    gap: 12px;
+    min-height: 60px;
+    gap: 14px;
+    padding: 10px 0;
   }
 
-  .nav-links {
-    width: 100%;
-    overflow-x: auto;
-    gap: 16px;
-    padding-bottom: 2px;
+  .brand {
+    gap: 8px;
+    font-size: 15px;
     white-space: nowrap;
   }
 
+  .brand-mark {
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+  }
+
+  .nav-links {
+    flex: 0 0 auto;
+    gap: 14px;
+    white-space: nowrap;
+    font-size: 13px;
+  }
+
   .hero {
-    padding-top: 34px;
+    padding: 34px 0 22px;
   }
 
   h1 {
-    font-size: 42px;
+    font-size: 38px;
+    line-height: 1.12;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  h3 {
+    font-size: 19px;
   }
 
   .lead {
+    margin-bottom: 22px;
     font-size: 17px;
+  }
+
+  .section {
+    padding: 34px 0;
+  }
+
+  .section-header {
+    gap: 12px;
+    margin-bottom: 18px;
   }
 
   .hero-actions,
@@ -667,6 +727,7 @@ h3 {
 
   .report-card {
     min-height: auto;
+    padding: 16px;
   }
 
   .report-card h3,
@@ -676,10 +737,72 @@ h3 {
 
   .list-item {
     grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .list-item .status {
+    justify-self: start;
   }
 
   .article,
   .content-page {
-    padding: 20px;
+    padding: 18px;
+  }
+
+  .article h1,
+  .page-head h1 {
+    font-size: 32px;
+  }
+
+  .article h2 {
+    margin-top: 28px;
+    font-size: 23px;
+  }
+
+  .article h3 {
+    font-size: 19px;
+  }
+
+  .article ul,
+  .article ol {
+    padding-left: 20px;
+  }
+
+  .article table {
+    min-width: 620px;
+  }
+
+  .side-box {
+    padding: 14px;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    width: min(100% - 24px, var(--max));
+  }
+
+  .nav {
+    gap: 10px;
+  }
+
+  .brand span:last-child {
+    max-width: 112px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .nav-links {
+    gap: 10px;
+  }
+
+  h1 {
+    font-size: 34px;
+  }
+
+  .article h1,
+  .page-head h1 {
+    font-size: 29px;
   }
 }
