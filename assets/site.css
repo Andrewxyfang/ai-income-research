@@ -398,6 +398,28 @@ h3 {
   overflow-wrap: anywhere;
 }
 
+.article-back {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 38px;
+  margin-bottom: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-alt);
+  padding: 8px 12px;
+  color: var(--brand-dark);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.article-back:hover {
+  border-color: rgba(15, 118, 110, 0.35);
+  background: #edf7f5;
+}
+
 .article h1 {
   margin-bottom: 12px;
   font-size: 46px;
@@ -749,6 +771,13 @@ h3 {
   .article,
   .content-page {
     padding: 18px;
+  }
+
+  .article-back {
+    justify-content: center;
+    width: 100%;
+    min-height: 42px;
+    margin-bottom: 14px;
   }
 
   .article h1,
