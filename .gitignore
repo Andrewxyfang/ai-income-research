@@ -1,6 +1,9 @@
 # Source files used to generate the public site.
 content/
 markdownTOhtml.py
+promo_writer.py
+web_report_writer.py
+promo/
 README.md
 
 # Old dynamic markdown renderer; reports are published as static HTML.
@@ -10,3 +13,4 @@ methodology.html
 # Local/editor noise.
 .DS_Store
 Thumbs.db
+__pycache__/
